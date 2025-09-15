@@ -1,0 +1,90 @@
+/* Web-specific styles for BookYourLesson App */
+
+/* Ensure smooth scrolling on web */
+* {
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Body styles for web */
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+/* Main app container */
+#root > div {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation container styling */
+div[data-testid="navigation-container"] {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Scrollable content areas */
+.scrollable-content {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: smooth;
+}
+
+/* Fix for React Native Web scrolling issues */
+div[style*="overflow: hidden"] {
+  overflow: visible !important;
+}
+
+/* Ensure cards and content are properly spaced on web */
+@media (min-width: 768px) {
+  .card-container {
+    max-width: 600px;
+    margin: 0 auto;
+  }
+}
+
+/* Touch-friendly scrollbars */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #dc2626;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #b91c1c;
+}
+
+/* Smooth focus transitions */
+input:focus,
+button:focus,
+textarea:focus {
+  outline: 2px solid #dc2626;
+  outline-offset: 2px;
+}
+
+/* Better button interactions on web */
+button:hover {
+  transform: translateY(-1px);
+  transition: transform 0.2s ease;
+}
+
+/* Fix for React Native TouchableOpacity on web */
+div[role="button"]:hover {
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+}
